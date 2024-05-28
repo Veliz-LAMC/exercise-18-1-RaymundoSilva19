@@ -8,14 +8,20 @@
 <link rel="stylesheet" href="styles/speaker.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-$(document).ready(function() {
-    // Function to swap images when clicked
-    $('ul#image_list li a').click(function(e) {
-        e.preventDefault(); // Prevent default link behavior
-        var newImageSrc = $(this).attr('href'); // Get the href attribute of the clicked link
-        $('section img').attr('src', newImageSrc); // Set the src attribute of the image to the new image source
+    $(document).ready(function() {
+        // Function to swap images when clicked
+        $('ul#image_list li a').click(function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            var newImageSrc = $(this).attr('href'); // Get the href attribute of the clicked link
+            $('section img').attr('src', newImageSrc); // Set the src attribute of the image to the new image source
+        });
     });
-});
+</script>
+<script>
+    window.onload = function() {
+        var year = new Date().getFullYear();
+        document.querySelector('footer p').innerHTML = "&copy; " + year + ", San Joaquin Valley Town Hall, Fresno, CA 93755";
+    };
 </script>
 </head>
 
@@ -59,11 +65,7 @@ $(document).ready(function() {
         </section>
     </main>
     <footer>
-        <p>&copy; <span id="footerYear"></span>, San Joaquin Valley Town Hall, Fresno, CA 93755</p>
+        <p>&copy; 2016, San Joaquin Valley Town Hall, Fresno, CA 93755</p>
     </footer>
-<script>
-    var year = new Date().getFullYear();
-    document.getElementById('footerYear').textContent = year;
-</script>
 </body>
 </html>
