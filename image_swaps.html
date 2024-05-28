@@ -13,7 +13,11 @@
         $('ul#image_list li a').click(function(e) {
             e.preventDefault(); // Prevent default link behavior
             var newImageSrc = $(this).attr('href'); // Get the href attribute of the clicked link
-            $('section img').attr('src', newImageSrc); // Set the src attribute of the image to the new image source
+            var speakerName = $(this).attr('title'); // Get the title attribute of the clicked link
+            // Hide all images of the same speaker
+            $('section img').filter('[data-speaker="' + speakerName + '"]').hide();
+            // Show the clicked image
+            $('section img').filter('[src="' + newImageSrc + '"]').show();
         });
     });
 </script>
@@ -52,16 +56,19 @@
             <h1>jQuery Image Swaps</h1>
             <ul id="image_list">
                 <li><a href="images/brancaccio_EEC.jpg" title="David Brancaccio">
-                    <img src="images/brancaccio75.jpg" alt=""></a></li>
+                    <img src="images/brancaccio75.jpg" alt="" data-speaker="David Brancaccio"></a></li>
                 <li><a href="images/sorkin_desk260.jpg" title="Andrew Ross Sorkin">
-                    <img src="images/sorkin75.jpg" alt=""></a></li>
+                    <img src="images/sorkin75.jpg" alt="" data-speaker="Andrew Ross Sorkin"></a></li>
                 <li><a href="images/chua_220.jpg" title="Amy Chua">
-                    <img src="images/chua75.jpg" alt=""></a></li>
+                    <img src="images/chua75.jpg" alt="" data-speaker="Amy Chua"></a></li>
                 <li><a href="images/sampson_dinosaur.jpg" title="Scott Sampson">
-                    <img src="images/sampson75.jpg" alt=""></a></li>
+                    <img src="images/sampson75.jpg" alt="" data-speaker="Scott Sampson"></a></li>
             </ul>
             <h2>Speaker</h2>
-            <p><img src="images/brancaccio_EEC.jpg" alt=""></p>
+            <p><img src="images/brancaccio_EEC.jpg" alt="" data-speaker="David Brancaccio"></p>
+            <p><img src="images/sorkin_desk260.jpg" alt="" data-speaker="Andrew Ross Sorkin"></p>
+            <p><img src="images/chua_220.jpg" alt="" data-speaker="Amy Chua"></p>
+            <p><img src="images/sampson_dinosaur.jpg" alt="" data-speaker="Scott Sampson"></p>
         </section>
     </main>
     <footer>
