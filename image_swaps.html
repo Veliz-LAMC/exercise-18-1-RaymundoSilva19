@@ -13,6 +13,19 @@
     window.onload = function() {
         var year = new Date().getFullYear();
         document.getElementById('footer_year').innerHTML = "&copy; " + year + ", San Joaquin Valley Town Hall, Fresno, CA 93755";
+        
+        // Attach click event listeners to image links
+        var imageLinks = document.querySelectorAll('#image_list a');
+        imageLinks.forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent the default behavior of the link
+                var newImageSrc = this.getAttribute('href'); // Get the href attribute of the clicked link
+                var newSpeakerName = this.getAttribute('title'); // Get the title attribute of the clicked link
+                var mainImage = document.getElementById('main_image'); // Get the main image element
+                mainImage.src = newImageSrc; // Update the src attribute of the main image
+                mainImage.alt = newSpeakerName; // Update the alt attribute of the main image
+            });
+        });
     };
 </script>
 </head>
