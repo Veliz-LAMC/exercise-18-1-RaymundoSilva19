@@ -7,12 +7,15 @@
 <link rel="stylesheet" type="text/css" href="styles/normalize.css">
 <link rel="stylesheet" href="styles/speaker.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="javascript/image_swap.js"></script>
 <script>
-    window.onload = function() {
-        var year = new Date().getFullYear();
-        document.querySelector('footer p').innerHTML = "&copy; " + year + ", San Joaquin Valley Town Hall, Fresno, CA 93755";
-    };
+    $(document).ready(function() {
+        // Function to swap images when clicked
+        $('ul#image_list li a').click(function(e) {
+            e.preventDefault(); // Prevent default link behavior
+            var newImageSrc = $(this).attr('href'); // Get the href attribute of the clicked link
+            $('section img').attr('src', newImageSrc); // Set the src attribute of the image to the new image source
+        });
+    });
 </script>
 </head>
 
@@ -50,7 +53,7 @@
                 <li><a href="images/sampson_dinosaur.jpg" title="Scott Sampson">
                     <img src="images/sampson75.jpg" alt=""></a></li>
             </ul>
-            <h2>David Brancaccio</h2>
+            <h2>Speaker</h2>
             <p><img src="images/brancaccio_EEC.jpg" alt=""></p>
         </section>
     </main>
